@@ -1,0 +1,202 @@
+/* Rural West Project — generated from tokens.json by scripts/build-css.mjs. Don't edit by hand. */
+
+@font-face { font-family: 'Oswald'; font-weight: 600; font-style: normal; font-display: swap; src: url('fonts/Oswald-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Oswald'; font-weight: 700; font-style: normal; font-display: swap; src: url('fonts/Oswald-Bold.woff2') format('woff2'); }
+@font-face { font-family: 'Oswald'; font-weight: 900; font-style: normal; font-display: swap; src: url('fonts/Oswald-Heavy.woff2') format('woff2'); }
+@font-face { font-family: 'Lato'; font-weight: 200; font-style: normal; font-display: swap; src: url('fonts/Lato-Thin.woff2') format('woff2'); }
+@font-face { font-family: 'Lato'; font-weight: 300; font-style: normal; font-display: swap; src: url('fonts/Lato-Light.woff2') format('woff2'); }
+@font-face { font-family: 'Lato'; font-weight: 400; font-style: normal; font-display: swap; src: url('fonts/Lato-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Lato'; font-weight: 500; font-style: normal; font-display: swap; src: url('fonts/Lato-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Lato'; font-weight: 600; font-style: normal; font-display: swap; src: url('fonts/Lato-Semibold.woff2') format('woff2'); }
+
+:root, [data-theme="light"] {
+  --primary-black: #231f20;
+  --primary-7595: #734338;
+  --secondary-7504: #987656;
+  --secondary-7506: #e8d9c4;
+  --secondary-7536: #9c9584;
+  --partisan-194: #992e45;
+  --partisan-5405: #44718c;
+  --bipartisan-437: #775f72;
+  --bipartisan-7449: #50404d;
+  --bipartisan-439: #3b2f39;
+  --surface: #ffffff;
+  --surface-alt: var(--secondary-7506);
+  --surface-inverse: var(--primary-black);
+  --surface-soft: #f7f2ea;
+  --ink: var(--primary-black);
+  --ink-muted: #605949;
+  --ink-inverse: #ffffff;
+  --line: var(--secondary-7536);
+  --line-strong: #7e7767;
+  --line-soft: #cfc8bc;
+  --line-faint: #e5e0d7;
+  --accent: var(--primary-7595);
+  --on-accent: #ffffff;
+  --link: var(--primary-black);
+  --link-hover: var(--primary-7595);
+  --focus: var(--accent);
+  --republican: var(--partisan-194);
+  --on-republican: #ffffff;
+  --democratic: var(--partisan-5405);
+  --on-democratic: #ffffff;
+  --democratic-ink: #396580;
+  --bipartisan: var(--bipartisan-437);
+  --on-bipartisan: #ffffff;
+  --independent: var(--ink-muted);
+  --party-other: #e6e6e1;
+  --on-party-other: #2f2f2c;
+  --party-other-bar: #9a9a94;
+  --bar-track: #efebe4;
+  --footer: var(--primary-black);
+  --footer-ink: var(--secondary-7506);
+  --footer-muted: var(--secondary-7536);
+  --highlight: #f1a529;
+  --highlight-tint: rgba(241, 165, 41, 0.13);
+  --bipartisan-ink: #71596c;
+  --map-won-d: var(--democratic);
+  --map-won-r: var(--republican);
+  --map-won-i: var(--bipartisan-437);
+  --map-won-o: #6b6b67;
+  --map-lean-d: #abbfcb;
+  --map-lean-r: #d1a1ab;
+  --map-lean-i: #c9bcc6;
+  --map-lean-o: #b6b6b1;
+  --map-tbd: #d9d4ca;
+  --map-none: #f4f1ec;
+  --map-stroke: var(--surface);
+  --map-label: var(--ink);
+  --map-halo: var(--surface);
+  --map-dim-stroke: var(--line-soft);
+  --region-1: #d6b36f;
+  --region-2: #9fb184;
+  --region-3: #b9a3b0;
+  --region-4: #c9a27e;
+  --b-win-bg: #2e5e45;
+  --b-win-fg: #ffffff;
+  --b-win-bd: var(--b-win-bg);
+  --b-lw-bg: #e6efe8;
+  --b-lw-fg: var(--b-win-bg);
+  --b-lw-bd: var(--b-win-bg);
+  --b-tbd-bg: var(--bar-track);
+  --b-tbd-fg: var(--ink-muted);
+  --b-tbd-bd: var(--line-soft);
+  --b-ll-bg: #f3e6da;
+  --b-ll-fg: #7a4a26;
+  --b-ll-bd: #8c5a36;
+  --b-loss-bg: #c9a27e;
+  --b-loss-fg: var(--primary-black);
+  --b-loss-bd: #8c5a36;
+  --i-win: var(--b-win-bg);
+  --i-win-soft: #e3ede5;
+  --i-loss: #8f877c;
+  --i-loss-soft: #efebe5;
+  --i-mark: #ffffff;
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #734338;
+  --glow: 0 0 0 2px #f1a529, 0 0 8px 2px rgba(241, 165, 41, 0.5);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --surface: var(--primary-black);
+  --surface-alt: #2e292a;
+  --surface-inverse: var(--secondary-7506);
+  --surface-soft: #2e292a;
+  --ink: var(--secondary-7506);
+  --ink-muted: var(--secondary-7536);
+  --ink-inverse: var(--primary-black);
+  --line: #463f40;
+  --line-strong: var(--secondary-7536);
+  --line-soft: #463f40;
+  --line-faint: #3a3536;
+  --accent: #c38d80;
+  --on-accent: var(--primary-black);
+  --link: var(--secondary-7506);
+  --link-hover: #ffffff;
+  --focus: var(--accent);
+  --republican: #e97788;
+  --on-republican: var(--primary-black);
+  --democratic: #71a0bc;
+  --on-democratic: var(--primary-black);
+  --democratic-ink: var(--democratic);
+  --bipartisan: #ac92a7;
+  --on-bipartisan: var(--primary-black);
+  --independent: var(--secondary-7536);
+  --party-other: #45453f;
+  --on-party-other: #ecebe6;
+  --party-other-bar: #8a8a84;
+  --bar-track: #3a3536;
+  --footer: #1a1718;
+  --footer-ink: var(--secondary-7506);
+  --footer-muted: var(--secondary-7536);
+  --highlight: #f1a529;
+  --highlight-tint: rgba(241, 165, 41, 0.14);
+  --bipartisan-ink: var(--bipartisan);
+  --map-won-d: var(--democratic);
+  --map-won-r: var(--republican);
+  --map-won-i: var(--bipartisan);
+  --map-won-o: #b4b4ae;
+  --map-lean-d: #5a7e95;
+  --map-lean-r: #a55966;
+  --map-lean-i: #5e4f5b;
+  --map-lean-o: #77776f;
+  --map-tbd: #5e5859;
+  --map-none: var(--surface-alt);
+  --map-stroke: var(--surface);
+  --map-label: var(--ink);
+  --map-halo: var(--surface);
+  --map-dim-stroke: var(--line-soft);
+  --region-1: #8f7643;
+  --region-2: #66784f;
+  --region-3: #7a6573;
+  --region-4: #8c6c52;
+  --b-win-bg: #7dbb93;
+  --b-win-fg: var(--primary-black);
+  --b-win-bd: var(--b-win-bg);
+  --b-lw-bg: var(--primary-black);
+  --b-lw-fg: var(--b-win-bg);
+  --b-lw-bd: var(--b-win-bg);
+  --b-tbd-bg: #3a3536;
+  --b-tbd-fg: #bdb5a6;
+  --b-tbd-bd: #463f40;
+  --b-ll-bg: var(--primary-black);
+  --b-ll-fg: #c9a27e;
+  --b-ll-bd: #c9a27e;
+  --b-loss-bg: #5a4535;
+  --b-loss-fg: var(--secondary-7506);
+  --b-loss-bd: #c9a27e;
+  --i-win: var(--b-win-bg);
+  --i-win-soft: #232b26;
+  --i-loss: #9d968b;
+  --i-loss-soft: #2b2826;
+  --i-mark: #1a1718;
+  --focus-ring: 0 0 0 2px #231f20, 0 0 0 4px #c38d80;
+  --glow: 0 0 0 2px #f1a529, 0 0 14px 4px rgba(241, 165, 41, 0.5);
+  color-scheme: dark;
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-full: 9999px;
+  --font-headline: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Lato", "Helvetica Neue", Arial, sans-serif;
+}
+
+.rwp-display { font-family: var(--font-headline); font-size: 56px; line-height: 60px; font-weight: 900; }
+.rwp-h1 { font-family: var(--font-headline); font-size: 40px; line-height: 46px; font-weight: 700; }
+.rwp-h2 { font-family: var(--font-headline); font-size: 30px; line-height: 36px; font-weight: 700; }
+.rwp-h3 { font-family: var(--font-headline); font-size: 22px; line-height: 28px; font-weight: 600; }
+.rwp-lead { font-family: var(--font-body); font-size: 20px; line-height: 30px; font-weight: 300; }
+.rwp-body { font-family: var(--font-body); font-size: 16px; line-height: 24px; font-weight: 400; }
+.rwp-small { font-family: var(--font-body); font-size: 14px; line-height: 20px; font-weight: 500; }
+.rwp-label { font-family: var(--font-body); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.2em; }
+.rwp-thin { font-family: var(--font-body); font-size: 40px; line-height: 48px; font-weight: 200; }
