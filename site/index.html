@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rural West Project — Brand</title>
+<meta name="description" content="Rural West Project's logos, colors, type and screen tokens.">
+<link rel="icon" href="favicons/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicons/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="tokens.css">
+<script>
+  // Theme before paint: the viewer's choice if they made one, otherwise the system's.
+  try {
+    var saved = localStorage.getItem('rwp-brand-theme');
+    document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  } catch (e) { document.documentElement.dataset.theme = 'light'; }
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--surface); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 24px; }
+  body { margin: 0; }
+  a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--link-hover); }
+  :focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-sm); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--space-6); }
+  @media (max-width: 600px) { .wrap { padding: 0 var(--space-4); } }
+
+  header.band { background: var(--primary-black); color: #fff; }
+  header.band .wrap { display: flex; align-items: center; gap: var(--space-4); min-height: 88px; padding-top: var(--space-4); padding-bottom: var(--space-4); flex-wrap: wrap; }
+  header.band img { height: 48px; width: auto; display: block; }
+  header.band .divider { width: 1px; align-self: stretch; background: var(--secondary-7536); margin: var(--space-1) 0; }
+  header.band .title { font-family: var(--font-headline); font-weight: 700; font-size: 22px; line-height: 28px; letter-spacing: 0.02em; }
+  header.band .spacer { flex: 1; }
+  .toggle { display: inline-flex; border: 1px solid var(--secondary-7536); border-radius: var(--radius-md); overflow: hidden; }
+  .toggle button { font: 600 13px/16px var(--font-body); background: transparent; color: #fff; border: 0; padding: 8px 12px; cursor: pointer; }
+  .toggle button[aria-pressed="true"] { background: var(--secondary-7506); color: var(--primary-black); }
+
+  nav.toc { border-bottom: 1px solid var(--line-soft); background: var(--surface); position: sticky; top: 0; z-index: 2; }
+  nav.toc .wrap { display: flex; gap: var(--space-4); overflow-x: auto; padding-top: var(--space-3); padding-bottom: var(--space-3); white-space: nowrap; }
+  nav.toc a { font-size: 14px; font-weight: 500; }
+
+  .hero { padding-top: var(--space-12); padding-bottom: var(--space-8); }
+  .hero p { max-width: 680px; margin: var(--space-3) 0 0; }
+  section { padding: var(--space-8) 0; border-top: 1px solid var(--line-soft); }
+  section { scroll-margin-top: 48px; }
+  section > .wrap > h2 { margin: 0 0 var(--space-2); }
+  section > .wrap > p.intro { margin: 0 0 var(--space-6); max-width: 720px; color: var(--ink-muted); }
+  h3 { margin: var(--space-8) 0 var(--space-4); }
+  .eyebrow { text-transform: uppercase; color: var(--ink-muted); margin: 0 0 var(--space-2); }
+  .muted { color: var(--ink-muted); }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.875em; }
+
+  .grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .card { border: 1px solid var(--line-soft); border-radius: var(--radius-md); overflow: hidden; background: var(--surface); }
+  .card .body { padding: var(--space-3) var(--space-4) var(--space-4); }
+  .card .name { font-weight: 600; }
+  .card .meta { font-size: 14px; line-height: 20px; color: var(--ink-muted); margin-top: var(--space-1); }
+
+  .logo-tile { height: 168px; display: flex; align-items: center; justify-content: center; padding: var(--space-6); }
+  .logo-tile img { max-height: 100%; max-width: 100%; }
+  .on-white { background: #ffffff; } .on-cream { background: var(--secondary-7506); } .on-black { background: var(--primary-black); }
+
+  .swatch { height: 96px; }
+  .swatch-pair { display: grid; grid-template-columns: 1fr 1fr; }
+  .swatch-pair > div { height: 72px; display: flex; align-items: flex-end; padding: var(--space-2); font-size: 12px; line-height: 16px; font-weight: 600; }
+  .swatch-pair > div { background: var(--surface); color: var(--ink-muted); }
+  .swatch-pair .chip { width: 100%; height: 100%; border-radius: var(--radius-sm); border: 1px solid rgba(128,128,128,.25); }
+  .vals { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); font-size: 12px; line-height: 16px; margin-top: var(--space-2); }
+  .usage { font-size: 13px; line-height: 19px; color: var(--ink-muted); margin-top: var(--space-2); }
+  .usage-toggle { font-size: 12px; margin-top: var(--space-1); background: none; border: 0; padding: 0; color: var(--link); text-decoration: underline; cursor: pointer; font-family: inherit; }
+
+  .type-row { display: grid; grid-template-columns: 180px 1fr; gap: var(--space-4); padding: var(--space-4) 0; border-bottom: 1px solid var(--line-faint); align-items: baseline; }
+  .type-row .spec { font-size: 13px; line-height: 19px; color: var(--ink-muted); }
+  .type-row .sample { overflow-wrap: anywhere; }
+  @media (max-width: 640px) { .type-row { grid-template-columns: 1fr; gap: var(--space-1); } }
+
+  .scale-row { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-2) 0; font-size: 14px; }
+  .scale-row .label { width: 120px; flex: none; }
+  .scale-row .bar { height: 16px; background: var(--accent); border-radius: 1px; }
+  .radius-box { width: 72px; height: 72px; border: 2px solid var(--ink); background: var(--surface-alt); }
+
+  .badges { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-4); }
+  .badge { display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border: 1px solid; border-radius: var(--radius-sm); font-size: 12px; line-height: 16px; font-weight: 600; white-space: nowrap; }
+  .party { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 22px; padding: 0 6px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; }
+  .theme-panel { padding: var(--space-4); background: var(--surface); color: var(--ink); border-radius: var(--radius-md); border: 1px solid var(--line-soft); }
+  .theme-panel + .theme-panel { margin-top: var(--space-3); }
+  .theme-panel .eyebrow { margin-bottom: var(--space-3); }
+  .fills { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .fill { width: 112px; }
+  .fill .chip { height: 48px; border-radius: var(--radius-sm); border: 1px solid var(--line-faint); }
+  .fill .cap { font-size: 12px; line-height: 16px; margin-top: var(--space-1); }
+  .glow-demo { box-shadow: var(--glow); }
+  details.all-tokens { margin-top: var(--space-8); }
+  details.all-tokens > summary { cursor: pointer; font-family: var(--font-headline); font-weight: 600; font-size: 22px; line-height: 28px; }
+  details.all-tokens[open] > summary { margin-bottom: var(--space-4); }
+
+  .downloads { display: grid; gap: var(--space-2) var(--space-6); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin: 0; padding: 0; list-style: none; }
+  .downloads li { font-size: 15px; }
+  footer { border-top: 1px solid var(--line-soft); padding: var(--space-8) 0 var(--space-12); color: var(--ink-muted); font-size: 14px; }
+  .error { padding: var(--space-4); background: var(--surface-alt); border-radius: var(--radius-md); }
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <img src="logos/rwp-primary-white.svg" alt="Rural West Project">
+    <span class="divider" aria-hidden="true"></span>
+    <span class="title">Brand</span>
+    <span class="spacer"></span>
+    <div class="toggle" role="group" aria-label="Theme">
+      <button type="button" data-set-theme="light">Light</button>
+      <button type="button" data-set-theme="dark">Dark</button>
+    </div>
+  </div>
+</header>
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <a href="#logos">Logos</a><a href="#palette">Palette</a><a href="#screen">Screen colors</a><a href="#election">Election data</a><a href="#type">Type</a><a href="#layout">Spacing &amp; radii</a><a href="#files">Files</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap hero">
+    <p class="eyebrow rwp-label">Rural West Project</p>
+    <h1 class="rwp-display" style="margin:0">The brand</h1>
+    <p class="rwp-lead">Logos, ten colors in four groups, Oswald and Lato, and the tokens that put them on screen in light and dark. Everything on this page is drawn from the same <code>tokens.css</code> and <code>tokens.json</code> you can download below.</p>
+  </div>
+
+  <section id="logos"><div class="wrap">
+    <h2 class="rwp-h2">Logos</h2>
+    <p class="intro">Use the SVG on the web; it scales to any size. The SVGs are traced from the original PNGs and match them to within half a pixel. The files don't switch with the theme: pick black for light grounds and white for dark ones. Never redraw, recolor, stretch or add effects.</p>
+    <div class="grid" id="logo-grid"></div>
+  </div></section>
+
+  <section id="palette"><div class="wrap">
+    <h2 class="rwp-h2">Brand palette</h2>
+    <p class="intro">The ten colors from the brand guide, in its four groups. They never change with the theme. The partisan colors encode party only, always with an R or D, and never as buttons, links or decoration.</p>
+    <div id="palette-groups"></div>
+  </div></section>
+
+  <section id="screen"><div class="wrap">
+    <h2 class="rwp-h2">Screen colors</h2>
+    <p class="intro">The tokens to build with. Each one is shown in both themes, whichever theme this page is in. Every text color holds at least 4.5:1 on the grounds its note names.</p>
+    <div class="grid" id="screen-grid"></div>
+  </div></section>
+
+  <section id="election"><div class="wrap">
+    <h2 class="rwp-h2">Election data</h2>
+    <p class="intro">The conventions the 2026 election site used for results. Party color always means the party of whoever's winning. RWP's own outcome is a word or icon, never color alone.</p>
+    <div id="election-panels"></div>
+  </div></section>
+
+  <section id="type"><div class="wrap">
+    <h2 class="rwp-h2">Type</h2>
+    <p class="intro">Oswald for headlines, Lato for everything else, in the guide's weights only: Oswald 600, 700 and 900; Lato 200, 300, 400, 500 and 600. There's no Lato Bold, so Semibold is the emphasis weight. In CSS, each style is a class: <code>.rwp-display</code>, <code>.rwp-body</code> and so on.</p>
+    <div id="type-rows"></div>
+  </div></section>
+
+  <section id="layout"><div class="wrap">
+    <h2 class="rwp-h2">Spacing &amp; radii</h2>
+    <p class="intro">A 4 px spacing scale and crisp corners. The brand is flat: its only shadows are the focus ring and the change highlight.</p>
+    <div id="spacing"></div>
+    <h3 class="rwp-h3">Radii</h3>
+    <div class="grid" id="radii" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))"></div>
+    <h3 class="rwp-h3">Shadows</h3>
+    <div class="grid" id="shadows" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))"></div>
+  </div></section>
+
+  <section id="files"><div class="wrap">
+    <h2 class="rwp-h2">Files</h2>
+    <p class="intro">To use the tokens on a site, copy <code>tokens.css</code> and the <code>fonts/</code> folder together, then set <code>data-theme="light"</code> or <code>"dark"</code> on <code>&lt;html&gt;</code>. Load the fonts from these files, not Google Fonts, whose Lato and Oswald lack the guide's weights.</p>
+    <ul class="downloads" id="downloads"></ul>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  Rural West Project brand. The fonts are Lato 2.015 by Łukasz Dziedzic and Oswald 4.101 by The Oswald Project Authors, both under the SIL Open Font License (<a href="fonts/Lato-OFL.txt">Lato</a>, <a href="fonts/Oswald-OFL.txt">Oswald</a>).
+</div></footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function setTheme(th, remember) {
+    root.dataset.theme = th;
+    document.querySelectorAll('[data-set-theme]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.setTheme === th)); });
+    if (remember) { try { localStorage.setItem('rwp-brand-theme', th); } catch (e) {} }
+  }
+  document.querySelectorAll('[data-set-theme]').forEach(function (b) {
+    b.addEventListener('click', function () { setTheme(b.dataset.setTheme, true); });
+  });
+  setTheme(root.dataset.theme || 'light', false);
+  try {
+    if (!localStorage.getItem('rwp-brand-theme')) {
+      matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        try { if (!localStorage.getItem('rwp-brand-theme')) setTheme(e.matches ? 'dark' : 'light', false); } catch (x) {}
+      });
+    }
+  } catch (e) {}
+
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    for (var k in attrs || {}) {
+      if (k === 'text') n.textContent = attrs[k];
+      else if (k === 'style') n.style.cssText = attrs[k];
+      else n.setAttribute(k, attrs[k]);
+    }
+    (kids || []).forEach(function (c) { if (c) n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+    return n;
+  }
+  function hex(rgb) {
+    var m = /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/.exec(rgb);
+    if (!m) return rgb;
+    var h = '#' + [m[1], m[2], m[3]].map(function (v) { return (+v).toString(16).padStart(2, '0'); }).join('').toUpperCase();
+    return m[4] !== undefined && +m[4] < 1 ? h + ' at ' + Math.round(+m[4] * 100) + '%' : h;
+  }
+  function alias(v) { var m = /^\{(.+)\}$/.exec(v || ''); return m ? m[1] : null; }
+  function themeVal(tok, th) { return typeof tok.value === 'string' ? tok.value : (tok.value[th] || tok.value.light); }
+  function usage(text) {
+    var short = text.length > 150 ? text.slice(0, text.lastIndexOf(' ', 140)) + '…' : null;
+    var p = el('div', { class: 'usage', text: short || text });
+    if (!short) return p;
+    var open = false;
+    var b = el('button', { type: 'button', class: 'usage-toggle', text: 'More', 'aria-expanded': 'false' });
+    b.addEventListener('click', function () { open = !open; p.textContent = open ? text : short; b.textContent = open ? 'Less' : 'More'; b.setAttribute('aria-expanded', String(open)); });
+    return el('div', {}, [p, b]);
+  }
+  // Resolve a token's color in a given theme by painting a probe inside a themed box.
+  var probeHost = el('div', { 'aria-hidden': 'true', style: 'position:absolute;left:-9999px;top:0' });
+  document.body.appendChild(probeHost);
+  function resolved(name, th) {
+    var box = el('div', { 'data-theme': th }); var s = el('span', { style: 'color:var(--' + name + ')' });
+    box.appendChild(s); probeHost.appendChild(box);
+    var c = getComputedStyle(s).color; probeHost.removeChild(box); return hex(c);
+  }
+  function pairCard(tok) {
+    var parts = ['light', 'dark'].map(function (th) {
+      return el('div', { class: th, 'data-theme': th }, [el('div', { class: 'chip', style: 'background:var(--' + tok.name + ')' })]);
+    });
+    var vals = el('div', { class: 'vals' }, ['light', 'dark'].map(function (th) {
+      var a = alias(themeVal(tok, th));
+      return el('div', {}, [el('div', { class: 'muted', text: th === 'light' ? 'Light' : 'Dark' }), el('div', { text: resolved(tok.name, th) + (a ? ' · ' + a : '') })]);
+    }));
+    return el('div', { class: 'card' }, [el('div', { class: 'swatch-pair' }, parts), el('div', { class: 'body' }, [el('div', { class: 'name' }, [el('code', { text: tok.name })]), vals, usage(tok.usage || '')])]);
+  }
+
+  fetch('tokens.json').then(function (r) { return r.json(); }).then(function (t) {
+    var colors = t.color.tokens;
+    // The guide's ten colors: a group prefix and one fixed hex value (bipartisan-ink, say, is a screen token).
+    function isBrand(c) { return typeof c.value === 'string' && c.value[0] === '#' && /^(primary|secondary|partisan|bipartisan)-/.test(c.name); }
+    var byName = {}; colors.forEach(function (c) { byName[c.name] = c; });
+
+    // Logos
+    [['rwp-primary-black', 'Primary, black', 'on-white', 'Light grounds'], ['rwp-primary-black', 'Primary, black', 'on-cream', 'On surface-alt'],
+     ['rwp-primary-white', 'Primary, white', 'on-black', 'Dark grounds only'], ['rwp-badge-black', 'Badge, black', 'on-white', 'Small or square spaces'],
+     ['rwp-badge-white', 'Badge, white', 'on-cream', 'The lighter badge'], ['rwp-badge-white', 'Badge, white', 'on-black', 'Reads as a white disc on dark']
+    ].forEach(function (l) {
+      document.getElementById('logo-grid').appendChild(el('div', { class: 'card' }, [
+        el('div', { class: 'logo-tile ' + l[2] }, [el('img', { src: 'logos/' + l[0] + '.svg', alt: l[1] + ' logo' })]),
+        el('div', { class: 'body' }, [el('div', { class: 'name', text: l[1] }), el('div', { class: 'meta' }, [l[3] + ' · ', el('a', { href: 'logos/' + l[0] + '.svg', download: '', text: 'SVG' }), ' · ', el('a', { href: 'logos/' + l[0] + '.png', download: '', text: 'PNG' })])])
+      ]));
+    });
+
+    // Brand palette: the ten guide colors, grouped by their name's prefix.
+    var groups = [['primary', 'Primary'], ['secondary', 'Secondary'], ['partisan', 'Partisan'], ['bipartisan', 'Bipartisan']];
+    groups.forEach(function (g) {
+      var grid = el('div', { class: 'grid' });
+      colors.filter(function (c) { return isBrand(c) && c.name.indexOf(g[0] + '-') === 0; }).forEach(function (c) {
+        var pantone = (/Pantone [^.]+/.exec(c.usage) || [''])[0];
+        var role = /^Partisan color: (\w+)/.exec(c.usage);
+        grid.appendChild(el('div', { class: 'card' }, [
+          el('div', { class: 'swatch', style: 'background:' + c.value }),
+          el('div', { class: 'body' }, [el('div', { class: 'name' }, [el('code', { text: c.name }), role ? ' · ' + role[1] : '']),
+            el('div', { class: 'meta', text: c.value.toUpperCase() + (pantone ? ' · ' + pantone : '') }), usage(c.usage.replace(/^[^.]+\.\s*Pantone[^.]+\.\s*/, ''))])
+        ]));
+      });
+      var wrapEl = document.getElementById('palette-groups');
+      wrapEl.appendChild(el('h3', { class: 'rwp-h3', text: g[1] }));
+      wrapEl.appendChild(grid);
+    });
+
+    // Screen colors vs. election data.
+    var election = /^(map-|region-|b-|i-|independent|party-|on-party|bar-track|highlight)/;
+    colors.filter(function (c) { return !isBrand(c) && !election.test(c.name); }).forEach(function (c) {
+      document.getElementById('screen-grid').appendChild(pairCard(c));
+    });
+
+    // Election data: live examples in both themes, then every token.
+    var ep = document.getElementById('election-panels');
+    function badge(k, label, dashed) {
+      return el('span', { class: 'badge', style: 'background:var(--b-' + k + '-bg);color:var(--b-' + k + '-fg);border-color:var(--b-' + k + '-bd);border-style:' + (dashed ? 'dashed' : 'solid') }, [label]);
+    }
+    function fill(name, label) {
+      return el('div', { class: 'fill' }, [el('div', { class: 'chip', style: 'background:var(--' + name + ')' }), el('div', { class: 'cap' }, [label, el('br'), el('code', { text: name })])]);
+    }
+    ['light', 'dark'].forEach(function (th) {
+      ep.appendChild(el('div', { class: 'theme-panel', 'data-theme': th }, [
+        el('p', { class: 'eyebrow rwp-label', text: th === 'light' ? 'Light theme' : 'Dark theme' }),
+        el('div', { style: 'display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px' }, [
+          badge('win', 'Win'), badge('lw', 'Leaning win', true), badge('tbd', 'TBD'), badge('ll', 'Leaning loss', true), badge('loss', 'Loss'),
+          el('span', { style: 'width:16px' }),
+          el('span', { class: 'party', style: 'background:var(--republican);color:var(--on-republican)', text: 'R' }),
+          el('span', { class: 'party', style: 'background:var(--democratic);color:var(--on-democratic)', text: 'D' }),
+          el('span', { class: 'party', style: 'background:var(--independent);color:var(--on-republican)', text: 'I' }),
+          el('span', { class: 'party', style: 'background:var(--party-other);color:var(--on-party-other)', text: 'Libertarian' }),
+          el('span', { class: 'badge glow-demo', style: 'background:var(--surface);color:var(--ink);border-color:var(--line-soft)', text: 'Just changed' })
+        ]),
+        el('div', { class: 'fills' }, [
+          fill('map-won-d', 'Won, D'), fill('map-lean-d', 'Leaning, D'), fill('map-won-r', 'Won, R'), fill('map-lean-r', 'Leaning, R'),
+          fill('map-won-i', 'Won, I or no party'), fill('map-lean-i', 'Leaning, I'), fill('map-won-o', 'Won, other party'), fill('map-lean-o', 'Leaning, other'),
+          fill('map-tbd', 'TBD'), fill('map-none', 'Not tracked'), fill('region-1', 'Rural West'), fill('region-2', 'American South'), fill('region-3', 'Appalachia / Ozarks')
+        ])
+      ]));
+    });
+    ep.appendChild(el('p', { class: 'muted', style: 'margin:16px 0 0;font-size:14px', text: 'Map fills are told apart more by hue than by lightness, so a map always shows its legend and outcome icons.' }));
+    var eg = el('div', { class: 'grid' });
+    var etoks = colors.filter(function (c) { return election.test(c.name); });
+    etoks.forEach(function (c) { eg.appendChild(pairCard(c)); });
+    ep.appendChild(el('details', { class: 'all-tokens' }, [el('summary', { text: 'Every election token (' + etoks.length + ')' }), eg]));
+
+    // Type
+    var fams = t.type.families;
+    t.type.groups.forEach(function (g) {
+      var rows = document.getElementById('type-rows');
+      rows.appendChild(el('h3', { class: 'rwp-h3', text: g.name }));
+      g.styles.forEach(function (s) {
+        var weights = { 200: 'Thin', 300: 'Light', 400: 'Regular', 500: 'Medium', 600: 'Semibold', 700: 'Bold', 900: 'Heavy' };
+        var face = (g.family === 'headline' ? 'Oswald ' : 'Lato ') + (weights[s.fontWeight] || s.fontWeight);
+        rows.appendChild(el('div', { class: 'type-row' }, [
+          el('div', { class: 'spec' }, [el('div', {}, [el('code', { text: '.rwp-' + s.name })]), face, el('br'), s.fontSize + ' / ' + s.lineHeight + (s.letterSpacing ? ' · tracked ' + s.letterSpacing : '')]),
+          el('div', {}, [el('div', { class: 'sample rwp-' + s.name, style: s.name === 'label' ? 'text-transform:uppercase' : '', text: s.sample }), usage(s.usage)])
+        ]));
+      });
+    });
+
+    // Spacing, radii, shadows
+    t.spacing.tokens.forEach(function (s) {
+      document.getElementById('spacing').appendChild(el('div', { class: 'scale-row' }, [el('code', { class: 'label', text: s.name }), el('div', { class: 'bar', style: 'width:' + s.value }), el('span', { class: 'muted', text: s.value + ' · ' + s.usage })]));
+    });
+    t.radius.tokens.forEach(function (r) {
+      document.getElementById('radii').appendChild(el('div', { class: 'card' }, [el('div', { style: 'padding:24px;display:flex;justify-content:center' }, [el('div', { class: 'radius-box', style: 'border-radius:var(--' + r.name + ')' })]), el('div', { class: 'body' }, [el('div', { class: 'name' }, [el('code', { text: r.name })]), el('div', { class: 'meta', text: r.value }), usage(r.usage)])]));
+    });
+    t.shadow.tokens.forEach(function (s) {
+      document.getElementById('shadows').appendChild(el('div', { class: 'card' }, [el('div', { style: 'padding:28px;display:flex;justify-content:center;background:var(--surface)' }, [el('div', { style: 'width:120px;height:40px;border-radius:var(--radius-md);background:var(--surface-alt);box-shadow:var(--' + s.name + ')' })]), el('div', { class: 'body' }, [el('div', { class: 'name' }, [el('code', { text: s.name })]), usage(s.usage)])]));
+    });
+
+    // Files
+    function links(list) {
+      var out = [];
+      list.forEach(function (l, i) { if (i) out.push(' · '); out.push(el('a', { href: l[0], download: '', text: l[1] })); });
+      return el('div', { style: 'font-size:14px' }, out);
+    }
+    var dl = document.getElementById('downloads');
+    function item(title, note, list) { dl.appendChild(el('li', {}, [el('div', { class: 'name', style: 'font-weight:600', text: title }), el('div', { class: 'muted', style: 'font-size:14px', text: note }), links(list)])); }
+    item('Tokens', 'CSS custom properties for both themes, with @font-face rules and type classes; and the source JSON, with a usage note on every token.', [['tokens.css', 'tokens.css'], ['tokens.json', 'tokens.json']]);
+    item('Logos', 'Black for light grounds, white for dark.', ['rwp-primary-black', 'rwp-primary-white', 'rwp-badge-black', 'rwp-badge-white'].map(function (n) { return ['logos/' + n + '.svg', n.replace('rwp-', '') + '.svg']; }));
+    item('Fonts', 'WOFF2, under the SIL Open Font License: keep the license with the files.', t.type.fonts.map(function (f) { return [f.file, f.file.replace('fonts/', '').replace('.woff2', '')]; }).concat([['fonts/Lato-OFL.txt', 'Lato license'], ['fonts/Oswald-OFL.txt', 'Oswald license']]));
+    item('Favicons', 'The badge as browser and app icons: black for light themes, white for dark.', [['favicons/favicon-light.svg', 'favicon-light.svg'], ['favicons/favicon-dark.svg', 'favicon-dark.svg'], ['favicons/favicon.ico', 'favicon.ico'], ['favicons/apple-touch-icon.png', 'apple-touch-icon.png'], ['favicons/icon-512.png', 'icon-512.png']]);
+  }).catch(function (e) {
+    document.querySelector('main').prepend(el('div', { class: 'wrap' }, [el('p', { class: 'error', text: 'Part of this page didn’t load (' + e.message + '). If you opened the file directly, open it from its web address instead.' })]));
+  });
+})();
+</script>
+</body>
+</html>

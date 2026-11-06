@@ -15,10 +15,13 @@ Values marked *guide* come straight from the brand guide. Values marked *screen*
 | `favicons/` | The 2026 site's favicon set, made from the badge. |
 | `guide/` | The brand guide PDF (v2) everything starts from. |
 | `scripts/build-css.mjs` | Rebuilds `tokens.css` from `tokens.json`. |
+| `site/` | The brand page published to GitHub Pages. |
 
 ## Using it
 
 **On a website:** copy `tokens.css` and `fonts/` together; the CSS loads the fonts from `fonts/`. Set `data-theme="light"` or `data-theme="dark"` on `<html>`, before first paint. Without one you get light. The 2026 site sets it from the viewer's choice or the system setting (`public/theme-init.js` there).
+
+**The brand page:** https://rural-west-project.github.io/brand/ shows all of this: logos, palette, every token in both themes, type and downloads. It's built from `site/index.html` and republished by GitHub Actions on every push to `main` (`.github/workflows/pages.yml`, with `scripts/build-site.mjs`). It reads `tokens.json` and `tokens.css` as it loads, so it can't drift from them. A Pages site is public even though this repo is private, so the page leaves out the brand guide PDF.
 
 **Changing a value:** edit `tokens.json`, then run `node scripts/build-css.mjs` (Node 18 or later, no installs). Never edit `tokens.css` by hand.
 
